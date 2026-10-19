@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Arcane Duel</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="refinements.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="logo">✦ ARCANE DUEL</div>
+    <span class="edition">THE OBSIDIAN SANCTUM</span>
+    <button class="btn restart" id="restart-btn">↻ Restart</button>
+  </header>
+  <div class="round-bar"><span id="round">ROUND 1</span><span id="status" role="status">Choose your spell.</span></div>
+  <main class="arena" aria-label="Battle arena">
+    <section class="duelist enemy-duelist" aria-label="Enemy wizard">
+      <div class="portrait enemy-portrait" aria-hidden="true">♜</div>
+      <div class="duelist-info"><span class="eyebrow">RIVAL WIZARD</span><h2>The Ashen One</h2><div class="vitals"><div class="stat-bar"><div id="enemy-hp" class="stat-fill hp-fill"></div></div><span id="enemy-hp-text">100 HP</span></div><span class="duelist-note">Enemy spell revealed when you cast</span></div>
+    </section>
+    <div class="dueling-circle" aria-hidden="true"></div>
+    <div class="played-cards">
+    <div class="field-zone"><span class="zone-title">Your played card</span><div class="card-slot" id="player-slot"><span class="empty-slot">Your spell awaits</span></div></div>
+    <div class="versus-badge">VS</div>
+    <div class="field-zone"><span class="zone-title">Enemy played card</span><div class="card-slot" id="enemy-slot"><span class="empty-slot">A rival in the shadows</span></div></div>
+    </div>
+    <section class="duelist player-duelist" aria-label="Your wizard">
+      <div class="portrait player-portrait" aria-hidden="true">✦</div>
+      <div class="duelist-info"><span class="eyebrow">YOUR WIZARD</span><h2>The Arcanist</h2><div class="vitals"><div class="stat-bar"><div id="player-hp" class="stat-fill hp-fill"></div></div><span id="player-hp-text">100 HP</span></div></div>
+    </section>
+  </main>
+  <section class="hand-container" aria-label="Your spells">
+    <div class="hand-heading"><h1>Your grimoire</h1><p>Select a card, then cast. Both spells resolve together.</p></div>
+    <div class="hand" id="hand"></div>
+    <p class="rules-note">The effect labels below each image are the game rules. Text printed in the artwork is decorative.</p>
+    <div class="controls"><button class="btn" id="inspect-btn" disabled>Inspect card</button><button class="btn btn-primary" id="cast-btn" disabled>✦ CAST SPELL</button></div>
+    <p class="hint">All four spells are reusable each round. Defense blocks this round only. Blade bypasses block.</p>
+  </section>
+  <details class="log-panel"><summary>Combat chronicle <span>View battle history</span></summary><div class="combat-log" id="combat-log" role="log" aria-live="polite"></div></details>
+  <dialog id="card-preview" aria-labelledby="preview-name" aria-describedby="preview-effect">
+    <button class="btn preview-close" id="close-preview" aria-label="Close card preview" autofocus>✕ Close</button>
+    <div class="preview-content"><img id="preview-image" alt=""><div class="preview-info"><span class="eyebrow">YOUR GRIMOIRE</span><h2 id="preview-name"></h2><p id="preview-effect"></p><p class="preview-note">This effect is the active game rule. Text printed in the artwork is decorative.</p></div></div>
+  </dialog>
+</body>
+</html>

@@ -1,0 +1,90 @@
+body { gap: 16px; padding: 24px; font-family: Inter, system-ui, sans-serif; }
+button { font: inherit; }
+.logo,.zone-title,.btn,h1,h2 { font-family: Georgia, serif; }
+.round-bar { width: 100%; max-width: 1200px; display:flex; justify-content:space-between; gap:16px; color:#bca571; font-size:13px; letter-spacing:1px; }
+#status { color:#e2e8f0; text-align:right; letter-spacing:0; }
+.arena { margin:0; min-height:335px; height:auto; padding:20px; }
+.card-slot { width:174px; height:260px; }
+.card-slot .tcg-card { width:166px; height:248px; cursor:default; }
+.tcg-card img { object-fit:contain; border-radius:9px; }
+.empty-slot { color:#8290a6; font-size:12px; text-align:center; padding:12px; }
+.hand-heading { text-align:center; }
+h1 { font-size:21px; color:#e6d3a4; margin-bottom:6px; }
+.hand-heading p,.hint,.rules-note { color:#a9b2c3; font-size:12px; text-align:center; line-height:1.6; }
+.hand { min-height:0; gap:18px; padding:12px 0; align-items:stretch; }
+.hand .tcg-card { width:190px; height:auto; flex:0 0 190px; padding:0; color:#e2e8f0; text-align:left; border:1px solid #665638; border-radius:12px; background:#101521; }
+.hand .tcg-card img { width:100%; height:auto; aspect-ratio:848/1264; }
+.card-copy { display:block; padding:12px; border-top:1px solid #665638; min-height:103px; }
+.card-name { display:block; font-family:Georgia,serif; color:#f0dfb8; font-size:15px; margin-bottom:6px; }
+.card-effect { display:block; font-size:12px; line-height:1.5; color:#bdc9db; }
+.hand .tcg-card:hover:not(:disabled) { transform:translateY(-6px); }
+.hand .tcg-card.selected { transform:translateY(-8px); border-color:#e5c879; box-shadow:0 0 0 2px #c49b46,0 12px 30px #0009; }
+.hand .tcg-card:disabled { cursor:default; }
+.hand .tcg-card:hover:disabled { transform:none; }
+:focus-visible { outline:3px solid #92d8ff; outline-offset:5px; }
+.controls { margin:0; }
+.log-panel { max-width:1200px; width:100%; border-top:1px solid #bca57133; padding-top:16px; }
+h2 { font-size:14px; color:#c9b888; margin-bottom:10px; }
+.combat-log { position:static; width:100%; max-height:150px; min-height:65px; }
+.stat-fill { width:100%; }
+@media(max-width:900px) { header { flex-direction:column; gap:16px; padding:16px; } .hand { flex-wrap:wrap; } .player-stats { gap:20px; } .stat-bar { width:80px; } }
+@media(max-width:480px) { body { padding:12px; gap:12px; } .logo { font-size:20px; } .player-stats { width:100%; flex-direction:column; gap:10px; } .stat-box { justify-content:space-between; font-size:13px; } .stat-bar { flex:1; max-width:170px; } .arena { padding:12px 6px; min-height:230px; } .card-slot { width:118px; height:178px; } .card-slot .tcg-card { width:110px; height:166px; } .zone-title { font-size:9px; letter-spacing:1px; } .versus-badge { width:30px; height:30px; font-size:16px; flex-shrink:0; } .hand { gap:12px; } .hand .tcg-card { width:calc(50% - 6px); flex-basis:calc(50% - 6px); } .card-copy { padding:9px; min-height:112px; } .card-name { font-size:14px; } .btn { padding:12px 17px; font-size:12px; } }
+@media(prefers-reduced-motion:reduce) { *,*::before,*::after { animation:none!important; transition:none!important; } }
+
+/* Sanctum battlefield: the portraits frame the shared casting space. */
+body { justify-content:flex-start; gap:12px; padding:18px 24px; background-color:#090d14; background-image:radial-gradient(ellipse at 50% 35%,#25253c 0%,transparent 65%),linear-gradient(120deg,#090d14,#121321); }
+header { max-width:1100px; padding:10px 18px; background:#10131dcc; }
+.logo { font-size:19px; }
+.edition,.eyebrow { font-size:10px; letter-spacing:2px; color:#b6a274; }
+.restart { padding:9px 13px; font-size:11px; }
+.round-bar { max-width:1100px; font-size:11px; padding:0 8px; }
+.arena { max-width:1100px; display:flex; flex-direction:column; gap:12px; padding:18px; isolation:isolate; overflow:hidden; border-color:#92815c55; background:radial-gradient(ellipse at center,#34334744,transparent 65%),repeating-conic-gradient(from 22.5deg at 50% 50%,#ffffff02 0deg 45deg,transparent 45deg 90deg),linear-gradient(#12151d,#1a1d28 50%,#10151e); }
+.dueling-circle { position:absolute; top:50%; left:50%; width:410px; height:310px; transform:translate(-50%,-50%); border:1px solid #bca57133; border-radius:50%; box-shadow:0 0 0 18px #bca57106,0 0 0 19px #bca57122,0 0 50px #9777d412; z-index:-1; pointer-events:none; }
+.dueling-circle::before,.dueling-circle::after { content:''; position:absolute; inset:25px; border:1px dashed #bca57133; border-radius:50%; }
+.dueling-circle::after { inset:47px; border-style:solid; }
+.duelist { display:flex; align-items:center; gap:14px; z-index:1; }
+.portrait { width:62px; height:70px; display:grid; place-items:center; font-size:39px; border:2px solid #b6a274; border-radius:45% 45% 30% 30%; box-shadow:inset 0 0 22px #000,0 5px 20px #0008; }
+.enemy-portrait { color:#efb7a2; background:radial-gradient(ellipse,#8d4640,#211924); }
+.player-portrait { color:#c8dfff; background:radial-gradient(ellipse,#3d648d,#171f37); }
+.duelist h2 { color:#e8dcc4; font-size:18px; margin:3px 0 6px; }
+.duelist-info { min-width:215px; }
+.vitals { display:flex; align-items:center; gap:10px; }
+.vitals .stat-bar { width:155px; height:7px; flex:none; }
+.vitals span { font-size:12px; font-weight:700; min-width:50px; }
+.player-duelist .hp-fill { background:linear-gradient(90deg,#326a9a,#a2d5e6); }
+.duelist-note { display:block; font-size:10px; color:#b3a7a4; margin-top:5px; }
+.played-cards { display:flex; align-items:center; justify-content:center; gap:45px; width:100%; padding:5px 0; }
+.field-zone { gap:6px; }
+.zone-title { font-size:9px; letter-spacing:1.5px; }
+.card-slot { width:100px; height:147px; border:1px dashed #b6a27455; border-radius:8px; background:#090b1233; }
+.card-slot .tcg-card { width:94px; height:140px; border-radius:7px; }
+.empty-slot { font-size:10px; line-height:1.6; }
+.versus-badge { width:40px; height:40px; font-size:17px; color:#d8c9a6; border-color:#b6a27466; background:#12151d; text-shadow:none; }
+.hand-container { max-width:1100px; gap:8px; }
+.hand-heading h1 { font-size:17px; margin-bottom:3px; }
+.hand-heading p { font-size:11px; }
+.hand { flex-wrap:nowrap; gap:12px; padding:8px 0; }
+.hand .tcg-card { width:150px; flex-basis:150px; box-shadow:0 6px 16px #0009; }
+.card-copy { padding:9px; min-height:96px; }
+.card-name { font-size:13px; }
+.card-effect { font-size:11px; }
+.rules-note { font-size:10px; }
+.controls { gap:12px; }
+.btn { font-size:12px; padding:11px 22px; }
+.btn-primary { background:linear-gradient(#735e35,#3e3020); border-color:#c7a866; }
+.btn-primary:hover:not(:disabled) { background:linear-gradient(#8c7345,#51402a); border-color:#efd39c; box-shadow:0 0 18px #c7a86644; }
+.log-panel { max-width:1100px; padding:10px 0; }
+summary { cursor:pointer; color:#c9b888; font:13px Georgia,serif; padding:3px; }
+summary span { float:right; font:11px system-ui,sans-serif; color:#8e99ab; }
+.combat-log { margin-top:12px; }
+dialog { margin:auto; max-width:850px; width:calc(100% - 32px); max-height:92dvh; overflow:auto; padding:20px; background:#131722; color:#e2e8f0; border:1px solid #b6a274; border-radius:16px; box-shadow:0 20px 100px #000; }
+dialog::backdrop { background:#04060cdd; backdrop-filter:blur(5px); }
+.preview-close { margin:0 0 14px auto; }
+.preview-content { display:flex; gap:28px; align-items:center; }
+#preview-image { display:block; width:55%; max-height:72dvh; object-fit:contain; border-radius:9px; }
+.preview-info { flex:1; }
+.preview-info h2 { font-size:26px; color:#eddbb0; margin:12px 0 20px; }
+#preview-effect { line-height:1.7; font-size:16px; }
+.preview-note { font-size:12px; color:#9ba6b9; line-height:1.6; margin-top:24px; }
+@media(max-width:900px) { header { flex-direction:row; gap:10px; } .edition { display:none; } }
+@media(max-width:600px) { body { padding:12px; } .logo { font-size:16px; letter-spacing:1px; } header { padding:10px; } .restart { font-size:10px; padding:8px 10px; } .arena { padding:14px 8px; } .played-cards { gap:22px; } .dueling-circle { width:280px; height:260px; } .hand { flex-wrap:wrap; gap:12px; } .hand .tcg-card { flex-basis:calc(50% - 6px); width:calc(50% - 6px); max-width:190px; } .card-copy { min-height:92px; } .duelist-info { min-width:190px; } .vitals .stat-bar { width:135px; } .portrait { width:52px; height:60px; font-size:30px; } .duelist h2 { font-size:16px; } .preview-content { flex-direction:column; gap:18px; } #preview-image { width:100%; max-height:52dvh; } .preview-info h2 { font-size:21px; margin:8px 0; } .preview-note { margin-top:12px; } }
